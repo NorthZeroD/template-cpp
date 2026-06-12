@@ -8,6 +8,11 @@ set(CMAKE_CXX_MODULE_STD ON)
 
 project(template_cpp LANGUAGES CXX)
 
+set(CMAKE_CXX_EXTENSIONS OFF)
+add_compile_options(
+    $<$<CXX_COMPILER_ID:GNU,Clang>:-Werror=return-type>
+)
+
 set(exe_name ${PROJECT_NAME})
 add_executable(${exe_name})
 target_sources(${exe_name} PRIVATE
